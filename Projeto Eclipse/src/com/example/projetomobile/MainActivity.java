@@ -4,6 +4,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.util.Log;
 import android.widget.TextView;
 
@@ -24,6 +25,8 @@ public class MainActivity extends Activity {
     Context context;
 
     String regid;
+    
+    
 
     private boolean checkPlayServices() {
         int resultCode = GooglePlayServicesUtil.isGooglePlayServicesAvailable(this);
@@ -32,12 +35,18 @@ public class MainActivity extends Activity {
                 GooglePlayServicesUtil.getErrorDialog(resultCode, this,
                         PLAY_SERVICES_RESOLUTION_REQUEST).show();
             } else {
-                Log.i(TAG, "This device is not supported.");
+                Log.i(TAG, "Este dispositivo não é suportado!");
                 finish();
             }
             return false;
         }
         return true;
+    }
+    
+    private SharedPreferences getGcmPreferences(Context context) {
+        // Guarda o ID de registro nas suas preferencias compartilhadas.
+        return getSharedPreferences(MainActivity.class.getSimpleName(),
+                Context.MODE_PRIVATE);
     }
 	
 
