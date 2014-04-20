@@ -5,6 +5,8 @@ import java.util.concurrent.atomic.AtomicInteger;
 import android.app.Activity;
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager.NameNotFoundException;
 import android.util.Log;
 import android.widget.TextView;
 
@@ -41,6 +43,17 @@ public class MainActivity extends Activity {
             return false;
         }
         return true;
+    }
+    
+    private static int getAppVersion(Context context) {
+        try {
+            PackageInfo packageInfo = context.getPackageManager()
+                    .getPackageInfo(context.getPackageName(), 0);
+            return packageInfo.versionCode;
+        } catch (NameNotFoundException e) {
+            // should never happen
+            throw new RuntimeException("Could not get package name: " + e);
+        }
     }
     
     private SharedPreferences getGcmPreferences(Context context) {
