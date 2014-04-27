@@ -17,6 +17,8 @@ import com.google.android.gms.gcm.GoogleCloudMessaging;
 public class MainActivity extends Activity {
 
 	private static final int PLAY_SERVICES_RESOLUTION_REQUEST = 9000;
+	public static final String PROPERTY_REG_ID = "idRegistro";
+	private static final String PROPERTY_APP_VERSION = "appVersion";
 	
 	static final String TAG = "GCM Demo";
 	
@@ -27,6 +29,8 @@ public class MainActivity extends Activity {
     Context context;
 
     String regid;
+    
+    
     
     
 
@@ -43,6 +47,17 @@ public class MainActivity extends Activity {
             return false;
         }
         return true;
+    }
+    
+    
+    private void storeRegistrationId(Context context, String regId) {
+        final SharedPreferences prefs = getGcmPreferences(context);
+        int appVersion = getAppVersion(context);
+        Log.i(TAG, "Salvando o ID de registro na versão da aplicação" + appVersion);
+        SharedPreferences.Editor editor = prefs.edit();
+        editor.putString(PROPERTY_REG_ID, regId);
+        editor.putInt(PROPERTY_APP_VERSION, appVersion);
+        editor.commit();
     }
     
     private static int getAppVersion(Context context) {
