@@ -26,6 +26,10 @@
             android:name="com.example.projetomobile.DemoActivity"
             android:label="@string/title_activity_demo" >
         </activity>
+        <activity
+            android:name="com.example.projetomobile.Login"
+            android:label="@string/title_activity_login" >
+        </activity>
     </application>
 
 </manifest>
