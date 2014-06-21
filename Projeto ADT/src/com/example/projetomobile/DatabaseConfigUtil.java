@@ -7,7 +7,7 @@ import com.j256.ormlite.android.apptools.OrmLiteConfigUtil;
 
 public class DatabaseConfigUtil extends OrmLiteConfigUtil{
 	
-	private static final Class<?>[] classes = new Class[]{Mensagem.class};
+	private static final Class<?>[] classes = new Class[]{Mensagem.class, Usuario.class};
 
 	public static void main(String[] args) {
 		try {

@@ -1,0 +1,40 @@
+#
+# generated on 2014/06/21 01:18:59
+#
+# --table-start--
+dataClass=com.example.projetomobile.Mensagem
+tableName=mensagem
+# --table-fields-start--
+# --field-start--
+fieldName=id
+generatedId=true
+# --field-end--
+# --field-start--
+fieldName=remetente
+# --field-end--
+# --field-start--
+fieldName=texto
+# --field-end--
+# --field-start--
+fieldName=data
+# --field-end--
+# --table-fields-end--
+# --table-end--
+#################################
+# --table-start--
+dataClass=com.example.projetomobile.Usuario
+tableName=usuario
+# --table-fields-start--
+# --field-start--
+fieldName=id
+generatedId=true
+# --field-end--
+# --field-start--
+fieldName=login
+# --field-end--
+# --field-start--
+fieldName=senha
+# --field-end--
+# --table-fields-end--
+# --table-end--
+#################################

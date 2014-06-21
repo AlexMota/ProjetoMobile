@@ -17,6 +17,10 @@ public class Mensagem {
 	
 	@DatabaseField
 	Date data;
+	
+	public Mensagem(){
+		
+	}
 
 	public Mensagem(String remetente, String texto) {
 		super();

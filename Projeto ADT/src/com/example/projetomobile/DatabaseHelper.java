@@ -18,6 +18,8 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper{
 	
 	private Dao<Mensagem, Integer> mensagemDao = null;
 	private RuntimeExceptionDao<Mensagem, Integer> mensagemRuntimeDao = null;
+	private Dao<Usuario, Integer> usuarioDao = null;
+	private RuntimeExceptionDao<Usuario, Integer> usuarioRuntimeDao = null;
 	
 	
 	public DatabaseHelper (Context context){
@@ -29,7 +31,8 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper{
 	public void onCreate(SQLiteDatabase database, ConnectionSource connectionSource) {
 		
 		try {
-			TableUtils.createTable(connectionSource, Mensagem.class);
+			TableUtils.createTableIfNotExists(connectionSource, Mensagem.class);
+			TableUtils.createTableIfNotExists(connectionSource, Usuario.class);
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -42,6 +45,7 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper{
 			int newVersion){
 		try {
 			TableUtils.dropTable(connectionSource, Mensagem.class, true);
+			TableUtils.dropTable(connectionSource, Usuario.class, true);
 			onCreate(database, connectionSource);
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -50,20 +54,37 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper{
 	}
 	
 	
-	public Dao<Mensagem, Integer> getMensagemDao(){
+	public Dao<Mensagem, Integer> getMensagemDao() throws SQLException{
 		if(mensagemDao == null){
-			mensagemDao = getMensagemDao();
+			mensagemDao = getDao(Mensagem.class);
 		}
 		
 		return mensagemDao;
 	}
 	
-	public RuntimeExceptionDao<Mensagem, Integer> getMensagemRuntimeDao(){
+	public RuntimeExceptionDao<Mensagem, Integer> getMensagemRuntimeExceptionDao(){
 		if(mensagemRuntimeDao == null){
-			mensagemRuntimeDao = getMensagemRuntimeDao();
+			mensagemRuntimeDao = getRuntimeExceptionDao(Mensagem.class);
 		}
 		
 		return mensagemRuntimeDao;
+	}
+	
+	
+	public Dao<Usuario, Integer> getUsuarioDao() throws SQLException{
+		if(usuarioDao == null){
+			usuarioDao = getDao(Usuario.class);
+		}
+		
+		return usuarioDao;
+	}
+	
+	public RuntimeExceptionDao<Usuario, Integer> getUsuarioRuntimeDao(){
+		if(usuarioRuntimeDao == null){
+			usuarioRuntimeDao = getRuntimeExceptionDao(Usuario.class);
+		}
+		
+		return usuarioRuntimeDao;
 	}
 
 }
