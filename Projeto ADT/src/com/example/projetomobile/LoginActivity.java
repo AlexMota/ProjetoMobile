@@ -77,7 +77,7 @@ public class LoginActivity extends OrmLiteBaseActivity<DatabaseHelper> implement
 	public void onClick(View arg0) {
 		if(verificaLogin()){
 			//entra na proxima activity
-			Intent intent = new Intent(this, MensagemActivity.class);
+			Intent intent = new Intent(this, PrincipalActivity.class);
             startActivity(intent);
 		}else{
 			Toast.makeText(getApplicationContext(), "Você não está cadastrado.", Toast.LENGTH_SHORT).show();

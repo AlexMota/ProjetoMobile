@@ -34,6 +34,10 @@
             android:name="com.example.projetomobile.MensagemActivity"
             android:label="@string/title_activity_mensagem" >
         </activity>
+        <activity
+            android:name="com.example.projetomobile.PrincipalActivity"
+            android:label="@string/title_activity_principal" >
+        </activity>
     </application>
 
 </manifest>
