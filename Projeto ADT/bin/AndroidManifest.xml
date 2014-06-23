@@ -26,6 +26,14 @@
             android:name="com.example.projetomobile.MainActivity2"
             android:label="@string/title_activity_main_activity2" >
         </activity>
+        <activity
+            android:name="com.example.projetomobile.LoginActivity"
+            android:label="@string/title_activity_login" >
+        </activity>
+        <activity
+            android:name="com.example.projetomobile.MensagemActivity"
+            android:label="@string/title_activity_mensagem" >
+        </activity>
     </application>
 
 </manifest>

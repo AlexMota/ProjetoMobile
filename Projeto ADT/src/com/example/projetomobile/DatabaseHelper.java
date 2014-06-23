@@ -79,7 +79,7 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper{
 		return usuarioDao;
 	}
 	
-	public RuntimeExceptionDao<Usuario, Integer> getUsuarioRuntimeDao(){
+	public RuntimeExceptionDao<Usuario, Integer> getUsuarioRuntimeExceptionDao(){
 		if(usuarioRuntimeDao == null){
 			usuarioRuntimeDao = getRuntimeExceptionDao(Usuario.class);
 		}
