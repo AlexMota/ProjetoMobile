@@ -9,9 +9,16 @@ import android.app.FragmentTransaction;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.ViewPager;
+import android.view.Menu;
 
-
+import com.example.projetomobile.adapter.ConcorrenciaFragment;
+import com.example.projetomobile.adapter.CustomTabListener;
+import com.example.projetomobile.adapter.GeralFragment;
+import com.example.projetomobile.adapter.IntegracaoFragment;
+import com.example.projetomobile.adapter.MobileFragment;
+import com.example.projetomobile.adapter.PersistenciaFragment;
 import com.example.projetomobile.adapter.TabsPagerAdapter;
+import com.example.projetomobile.adapter.WebFragment;
 
 @SuppressLint("NewApi")
 public class PrincipalActivity extends FragmentActivity implements
@@ -28,44 +35,56 @@ public class PrincipalActivity extends FragmentActivity implements
 	
 	@SuppressLint("NewApi")
 	@Override
-	protected void onCreate(Bundle savedInstanceState) {
-		 super.onCreate(savedInstanceState);
-	        setContentView(R.layout.activity_principal);
-	 
-	        // Initilization
-	        viewPager = (ViewPager) findViewById(R.id.pager);
-	        actionBar = getActionBar();
-	        mAdapter = new TabsPagerAdapter(getSupportFragmentManager());
-	 
-	        viewPager.setAdapter(mAdapter);
-	        actionBar.setHomeButtonEnabled(false);
-	        actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);        
-	 
-	        // Adding Tabs
-	        for (String tab_name : tabs) {
-	            actionBar.addTab(actionBar.newTab().setText(tab_name)
-	                    .setTabListener(this));
-	        }
-	        
-	        viewPager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
-	        	 
-	            @Override
-	            public void onPageSelected(int position) {
-	                // on changing the page
-	                // make respected tab selected
-	                actionBar.setSelectedNavigationItem(position);
-	            }
-	 
-	            @Override
-	            public void onPageScrolled(int arg0, float arg1, int arg2) {
-	            }
-	 
-	            @Override
-	            public void onPageScrollStateChanged(int arg0) {
-	            }
-	        });
-	}
+	public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+ 
+        ActionBar actionBar = getActionBar();
+        actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
+ 
+        actionBar.setDisplayShowTitleEnabled(true);
+ 
+        /** Creating ANDROID Tab */
+        Tab tab = actionBar.newTab()
+            .setText("Geral")
+            .setTabListener(new CustomTabListener<GeralFragment>(this, "geral", GeralFragment.class));
+             
+        actionBar.addTab(tab);
+        
+        tab = actionBar.newTab()
+        		.setText("Mobile")
+        .setTabListener(new CustomTabListener<MobileFragment>(this, "mobile", MobileFragment.class));
+        actionBar.addTab(tab);
+ 
+        tab = actionBar.newTab()
+        		.setText("Web")
+        		.setTabListener(new CustomTabListener<WebFragment>(this, "web", WebFragment.class));
+        actionBar.addTab(tab);
+ 
+        tab = actionBar.newTab()
+        		.setText("Integração")
+        		.setTabListener(new CustomTabListener<IntegracaoFragment>(this, "integração", IntegracaoFragment.class));
+        actionBar.addTab(tab);
+ 
+        tab = actionBar.newTab()
+        		.setText("Persistência")
+        		.setTabListener(new CustomTabListener<PersistenciaFragment>(this, "persistência", PersistenciaFragment.class));
+        actionBar.addTab(tab);
+ 
+        tab = actionBar.newTab()
+        		.setText("Concorrência")
+        		.setTabListener(new CustomTabListener<ConcorrenciaFragment>(this, "concorrência", ConcorrenciaFragment.class));
+        actionBar.addTab(tab);
+         
+    }
 
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu) {
+
+		// Inflate the menu; this adds items to the action bar if it is present.
+		getMenuInflater().inflate(R.menu.login, menu);
+		return true;
+	}
+	
 
 	
 	@Override

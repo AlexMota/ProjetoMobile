@@ -31,6 +31,8 @@ public class MainActivity extends OrmLiteBaseActivity<DatabaseHelper> implements
         //doDataStuff();
     }
     
+    
+    /*
     private void doDataStuff(){
     	
     	
@@ -55,7 +57,7 @@ public class MainActivity extends OrmLiteBaseActivity<DatabaseHelper> implements
     	
     }
 
-
+*/
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         

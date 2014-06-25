@@ -53,7 +53,7 @@ public class LoginActivity extends OrmLiteBaseActivity<DatabaseHelper> implement
 	public boolean verificaLogin(){
 		boolean cadastrado = false;
 		RuntimeExceptionDao<Usuario, Integer> usrDao = getHelper().getUsuarioRuntimeExceptionDao();
-		usrDao.create(new Usuario("user1", "1234"));
+		//usrDao.create(new Usuario("user1", "1234"));
 		List<Usuario> usrs = usrDao.queryForAll();
 	
 		Log.d("demo", usrs.toString());

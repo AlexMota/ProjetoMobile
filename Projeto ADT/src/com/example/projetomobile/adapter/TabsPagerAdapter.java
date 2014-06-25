@@ -1,5 +1,6 @@
 package com.example.projetomobile.adapter;
 
+import android.app.ListFragment;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
@@ -16,13 +17,13 @@ public class TabsPagerAdapter extends FragmentPagerAdapter{
 		switch (index) {
         case 0:
             // Top Rated fragment activity
-            return new GeralFragment();
+            //return new GeralFragment();
         case 1:
             // Games fragment activity
-            return new MobileFragment();
+            //return new MobileFragment();
         case 2:
             // Movies fragment activity
-            return new WebFragment();
+            //return new WebFragment();
         }
  
         return null;
