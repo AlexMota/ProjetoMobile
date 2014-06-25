@@ -1,29 +1,44 @@
 package com.example.projetomobile;
 
-import android.support.v7.app.ActionBarActivity;
-import android.support.v7.app.ActionBar;
-import android.support.v4.app.Fragment;
+import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
-import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.view.ViewGroup;
-import android.os.Build;
+import android.widget.TextView;
+import android.widget.Toast;
 
-public class MensagemSelecionadaActivity extends ActionBarActivity {
+public class MensagemSelecionadaActivity extends Activity {
 
+	boolean lida;
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_mensagem_selecionada);
 
-		if (savedInstanceState == null) {
-			getSupportFragmentManager().beginTransaction()
-					.add(R.id.container, new PlaceholderFragment()).commit();
-		}
+		TextView txtRemetente = (TextView) findViewById(R.id.fromMensSel);
+		TextView txtAssunto = (TextView) findViewById(R.id.subjectMensSel);
+		TextView txtDate = (TextView) findViewById(R.id.dateMensSel);
+		TextView txtMessageText = (TextView) findViewById(R.id.message_textMensSel);
+        
+        Intent i = getIntent();
+        
+        String remetente = i.getStringExtra("remetente");
+        String data = i.getStringExtra("data");
+        String assunto = i.getStringExtra("assunto");
+        String mensagem = i.getStringExtra("mensagem");
+        lida = i.getBooleanExtra("lida", true);
+        
+        
+        txtRemetente.setText(remetente);
+        txtAssunto.setText(assunto);
+        txtDate.setText(data);
+        txtMessageText.setText(mensagem);
+		
 	}
 
+	
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 
@@ -38,27 +53,14 @@ public class MensagemSelecionadaActivity extends ActionBarActivity {
 		// automatically handle clicks on the Home/Up button, so long
 		// as you specify a parent activity in AndroidManifest.xml.
 		int id = item.getItemId();
-		if (id == R.id.action_settings) {
-			return true;
+		if (id == R.id.mensLida) {
+			lida = false;
+			
+			
 		}
 		return super.onOptionsItemSelected(item);
 	}
 
-	/**
-	 * A placeholder fragment containing a simple view.
-	 */
-	public static class PlaceholderFragment extends Fragment {
-
-		public PlaceholderFragment() {
-		}
-
-		@Override
-		public View onCreateView(LayoutInflater inflater, ViewGroup container,
-				Bundle savedInstanceState) {
-			View rootView = inflater.inflate(
-					R.layout.fragment_mensagem_selecionada, container, false);
-			return rootView;
-		}
-	}
+	
 
 }

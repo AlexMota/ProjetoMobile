@@ -2,6 +2,7 @@ package com.example.projetomobile;
 
 import java.util.List;
 
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -37,17 +38,13 @@ public class LoginActivity extends OrmLiteBaseActivity<DatabaseHelper> implement
 		txSenha = (TextView) findViewById(R.id.textViewSenha);
 		etSenha = (EditText) findViewById(R.id.editTextSenha);
 		btnOK = (Button) findViewById(R.id.buttonOK);
+		
+		etLogin.setText("user1");
+		etSenha.setText("1234");
 
 		btnOK.setOnClickListener(this);
 	}
 
-	@Override
-	public boolean onCreateOptionsMenu(Menu menu) {
-
-		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.login, menu);
-		return true;
-	}
 	
 	
 	public boolean verificaLogin(){
@@ -56,11 +53,11 @@ public class LoginActivity extends OrmLiteBaseActivity<DatabaseHelper> implement
 		//usrDao.create(new Usuario("user1", "1234"));
 		List<Usuario> usrs = usrDao.queryForAll();
 	
-		Log.d("demo", usrs.toString());
+		//Log.d("demo", usrs.toString());
 		
 		for(Usuario u : usrs){
-			Log.d("demo", u.login);
-			Log.d("demo", etLogin.getText().toString());
+			//Log.d("demo", u.login);
+			//Log.d("demo", etLogin.getText().toString());
 			if(u.login.equals(etLogin.getText().toString()) && u.senha.equals(etSenha.getText().toString())){
 				cadastrado = true;
 			}
@@ -79,6 +76,7 @@ public class LoginActivity extends OrmLiteBaseActivity<DatabaseHelper> implement
 			//entra na proxima activity
 			Intent intent = new Intent(this, PrincipalActivity.class);
             startActivity(intent);
+            Toast.makeText(getApplicationContext(), "Acesse 'Configurações' e 'Add Disciplina' no menu da barra de título.", Toast.LENGTH_SHORT).show();
 		}else{
 			Toast.makeText(getApplicationContext(), "Você não está cadastrado.", Toast.LENGTH_SHORT).show();
 		}

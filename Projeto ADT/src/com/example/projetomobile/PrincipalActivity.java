@@ -6,10 +6,12 @@ import android.annotation.SuppressLint;
 import android.app.ActionBar;
 import android.app.ActionBar.Tab;
 import android.app.FragmentTransaction;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.ViewPager;
 import android.view.Menu;
+import android.view.MenuItem;
 
 import com.example.projetomobile.adapter.ConcorrenciaFragment;
 import com.example.projetomobile.adapter.CustomTabListener;
@@ -81,10 +83,28 @@ public class PrincipalActivity extends FragmentActivity implements
 	public boolean onCreateOptionsMenu(Menu menu) {
 
 		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.login, menu);
+		getMenuInflater().inflate(R.menu.principal, menu);
 		return true;
 	}
 	
+	
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+		// Handle action bar item clicks here. The action bar will
+		// automatically handle clicks on the Home/Up button, so long
+		// as you specify a parent activity in AndroidManifest.xml.
+		int id = item.getItemId();
+		if (id == R.id.config) {
+			
+			Intent i = new Intent(this, ConfiguracoesActivity.class);
+			startActivity(i);
+			//Toast.makeText(getApplicationContext(), "As mensagens não lidas possuem o fundo cinza.", Toast.LENGTH_SHORT).show();
+		}else if(id == R.id.novaDisciplina){
+			Intent i = new Intent(this, NovaDisciplinaActivity.class);
+			startActivity(i);
+		}
+		return super.onOptionsItemSelected(item);
+	}
 
 	
 	@Override
@@ -106,8 +126,6 @@ public class PrincipalActivity extends FragmentActivity implements
 		
 	}
 
-	/**
-	 * A placeholder fragment containing a simple view.
-	 */
+	
 	
 }

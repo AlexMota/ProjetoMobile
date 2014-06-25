@@ -4,9 +4,15 @@
     tools:context="com.example.projetomobile.PrincipalActivity" >
 
     <item
-        android:id="@+id/action_settings"
+        android:id="@+id/config"
         android:orderInCategory="100"
-        android:title="@string/action_settings"
+        android:title="@string/opConfig"
+        app:showAsAction="never"/>
+    
+    <item
+        android:id="@+id/novaDisciplina"
+        android:orderInCategory="100"
+        android:title="Add disciplina"
         app:showAsAction="never"/>
 
 </menu>

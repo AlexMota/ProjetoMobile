@@ -3,8 +3,10 @@ package com.example.projetomobile.adapter;
 import java.util.ArrayList;
 
 import com.example.projetomobile.Mensagem;
+import com.example.projetomobile.MensagemSelecionadaActivity;
 
 import android.app.ListFragment;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -45,5 +47,19 @@ public class IntegracaoFragment extends ListFragment{
         /** Setting the multiselect choice mode for the listview */
         getListView().setChoiceMode(ListView.CHOICE_MODE_MULTIPLE);
     }
+ 
+ 
+ public void onListItemClick(ListView l, View v, int position, long id) {
+		
+		Mensagem m = (Mensagem) l.getItemAtPosition(position);
+		Intent i = new Intent(getActivity().getBaseContext(), MensagemSelecionadaActivity.class);
+		i.putExtra("remetente", m.getRemetente());
+		i.putExtra("assunto", m.getAssunto());
+		i.putExtra("mensagem", m.getTexto());
+		i.putExtra("data", m.getData());
+		i.putExtra("lida", true);
+		
+		startActivity(i);
+	}
 
 }

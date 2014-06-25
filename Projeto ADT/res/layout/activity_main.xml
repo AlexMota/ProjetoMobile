@@ -11,11 +11,37 @@
         android:layout_height="match_parent"
         android:orientation="vertical" >
 
-        <Button
-            android:id="@+id/buttonActivityLogin"
+        <TextView
+            android:id="@+id/textViewNotifica"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="50sp"
+            android:text="Notifica"
+            android:textSize="60sp" />
+
+        <TextView
+            android:id="@+id/textViewUFG"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:text="UFG"
+            android:textSize="40sp" />
+
+        <Button
+            android:id="@+id/buttonActivityLogin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:layout_marginTop="70sp"
             android:text="Login" />
+
+        <Button
+            android:id="@+id/buttonActivityEntrar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="clip_horizontal"
+            android:text="Entrar" />
 
     </LinearLayout>
 

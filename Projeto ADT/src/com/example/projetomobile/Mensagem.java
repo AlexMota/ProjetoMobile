@@ -33,7 +33,8 @@ public class Mensagem {
 		this.remetente = remetente;
 		this.texto = texto;
 		this.assunto = assunto;
-		this.data = c.get(Calendar.DAY_OF_MONTH)+" "+c.get(Calendar.MONTH);
+		this.foiLida = false;
+		this.data = c.get(Calendar.DAY_OF_MONTH)+"/"+c.get(Calendar.MONTH);
 	}
 
 	

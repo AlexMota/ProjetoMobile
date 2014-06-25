@@ -1,0 +1,56 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="5dp"
+    tools:context="com.example.projetomobile.ConfiguracoesActivity" >
+
+    <TextView
+        android:id="@+id/textViewConfig"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Receber Mensagens de:"
+        android:textSize="22sp" />
+ 
+    <CheckBox
+         android:id="@+id/checkBoxWeb"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:text="Desenvolvimento de Software para a Web" 
+         android:paddingTop="10sp"/>
+   
+    
+    <CheckBox
+         android:id="@+id/checkBoxMobile"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:text="Des. de Soft. para Dispositivos Móveis" />
+    
+    <CheckBox
+         android:id="@+id/checkBoxIntegracao"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:text="Integração de Aplicações" />
+    
+    <CheckBox
+         android:id="@+id/checkBoxPersistencia"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:text="Des. de Soft. para Persistência" />
+    
+    <CheckBox
+         android:id="@+id/checkBoxConcorrencia"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:text="Des. de Soft para Concorrência" />
+
+    <Button
+        android:id="@+id/buttonAplicarConfig"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="20sp"
+        android:text="Aplicar alterações" />
+     
+</LinearLayout>

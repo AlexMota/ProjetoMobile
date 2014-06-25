@@ -56,6 +56,9 @@ public class MensagemAdapter extends BaseAdapter{
 		tvFrom.setText(m.getRemetente());  
 		tvSubject.setText(m.getAssunto());
 		tvDate.setText(m.getData());
+		
+		
+		
 		  
 		return v; 
 		
